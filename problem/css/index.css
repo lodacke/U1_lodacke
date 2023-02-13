@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Roboto_light";
+    src: url("/fonts/RobotoCondensed-Light.ttf");
+}
+
+body{
+    border-radius: 3000px;
+    background-color: turquoise;
+    font-family: "Roboto_light";
+    width: 337px;
+    height: 666px;
+}
+
+header{
+    width: 95%;
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#icon img{
+ height: 50px;
+}
+
+footer{
+    width: 95%;
+    height: 5%;
+}
+
+
+
+
