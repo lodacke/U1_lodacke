@@ -59,6 +59,7 @@ function where_to(){
 function log_in_side(){
     document.querySelector("body").style.backgroundColor = "turquoise";
     document.querySelector("h1").innerText = "LOGIN";
+    document.querySelector(".Paragraph").style.backgroundColor = "";
     document.querySelector(".Paragraph").innerText = "Let the magic start!"
     document.querySelector("#where_to p").innerText = "New to this? register for free";
     document.querySelector("button").innerText = "Login"
@@ -67,6 +68,7 @@ function log_in_side(){
  function start_registration(){
     document.querySelector("body").style.backgroundColor = "rgb(97, 184, 97)";
     document.querySelector("h1").innerText = "REGISTRATION";
+    document.querySelector(".Paragraph").style.backgroundColor = "";
     document.querySelector(".Paragraph").innerText = "Ready when you are..."
     document.querySelector("#where_to p").innerText = "Already have an accounts? Go to login";
     document.querySelector("button").innerText = "Registration";

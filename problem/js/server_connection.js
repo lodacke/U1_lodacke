@@ -11,7 +11,6 @@ async function add_new_user(){
        // <p>You have not added a value, Please add a credential and try again. </p>    <-- För att säkra upp så att inga tomma värden kan loggas, kanske överkurs.
        // <button> close </button>`
        // };
-
         document.querySelector("#feedback").classList.add("visible");
         document.querySelector("#feedback").innerText = "Contacting Server..."
 
