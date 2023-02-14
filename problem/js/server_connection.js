@@ -52,7 +52,7 @@ async function add_new_user(){
                            case 409: 
                            document.querySelector("#feedback").classList.add("visible");
                             document.querySelector("#feedback").innerHTML = `
-                            <p> The server finds a conflict: (${post_request.status}) </p>
+                            <p> Sorry, that name already exists. Please try with another one.</p>
                             <button> Close </button>`    
                             "The server finds a conflict"
 
