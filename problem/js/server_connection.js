@@ -1,5 +1,10 @@
 let request = "https://teaching.maumt.se/apis/access/";
 
+async function get_response(request) {
+    let response = await fetch(request)
+    return response;
+}
+
 
 async function add_new_user(){
 
@@ -15,7 +20,7 @@ async function add_new_user(){
         document.querySelector("#feedback").classList.add("visible");
         document.querySelector("#feedback").innerText = "Contacting Server..."
 
-        let post_request = await fetch( request, {
+        let post_request = await get_response(request, {
             method: "POST",
             headers: {"Content-type": "application/json; charset=UTF-8"},
             body: JSON.stringify({
@@ -71,7 +76,7 @@ async function login(){
     document.querySelector("#feedback").textContent = "Connecting to server...";
 
 
-    let login_request = await fetch(`${request}?action=check_credentials&user_name=${user_value.value}&password=${password_value.value}`);
+    let login_request = await get_response(`${request}?action=check_credentials&user_name=${user_value.value}&password=${password_value.value}`);
    console.log(login_request);
 
    document.querySelector("#feedback").classList.remove("visible");
