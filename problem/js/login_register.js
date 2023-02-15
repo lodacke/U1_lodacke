@@ -57,7 +57,7 @@ function where_to(){
 
 
 function log_in_side(){
-    document.querySelector("body").style.backgroundColor = "turquoise";
+    document.querySelector("body").style.backgroundColor = "rgb(191, 232, 237);";
     document.querySelector("h1").innerText = "LOGIN";
     document.querySelector(".Paragraph").style.backgroundColor = "";
     document.querySelector(".Paragraph").innerText = "Let the magic start!"
