@@ -30,7 +30,7 @@ async function add_new_user(){
             }),
          });
 
-         const response = await post_request.json(); 
+    //     const response = await post_request.json(); 
                     if (post_request.status == 200){
                         document.querySelector("#feedback").classList.add("visible");
                         document.querySelector("#feedback").innerHTML = `
