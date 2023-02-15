@@ -27,3 +27,32 @@ main {
 #game{
     height: 90%;
 }
+
+.game_photo{
+    height: 65%;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin: 3%;
+}
+
+.question_board{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2%;
+    height: 25%;
+}
+
+.question_board > div{
+    background-color: white;
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    padding: 4%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.question_board > div:hover{
+    background-color: lightblue;
+}
