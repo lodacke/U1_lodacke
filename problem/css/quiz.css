@@ -33,7 +33,10 @@ main {
     border-radius: 10px;
     border: 1px solid gray;
     margin: 3%;
+    background-position: center;
 }
+
+
 
 .question_board{
     display: grid;

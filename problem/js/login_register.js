@@ -45,17 +45,6 @@ function where_to(){
     }
 }
 
-
-//document.querySelector("main button").addEventListener("click", reg_or_login); <-- funktion för att se till att det inte går att regga en användare på knappen både när den är login och regg.
-//function reg_or_login(){
-//    if(document.querySelector("button").innerText === "Register"){
-//        add_new_user()
-//    }else { 
-//        log_in()
-//    }
-//}
-
-
 function log_in_side(){
     document.querySelector("body").style.backgroundColor = "rgb(191, 232, 237);";
     document.querySelector("h1").innerText = "LOGIN";

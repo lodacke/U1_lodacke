@@ -47,10 +47,11 @@ justify-content: center;
     border: 1px solid black;
     font-size: 20px;
     padding: 10%;
+
+    position: absolute;
     top: 70vw;
     left: 15vw;
 
-    position: absolute;
     background-color: white;
     border-radius: 0px 0px 10px 10px; 
 
