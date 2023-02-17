@@ -19,7 +19,7 @@ async function add_new_user(){
         document.querySelector("#feedback").classList.add("visible");
         document.querySelector("#feedback").innerText = "Contacting Server..."
 
-        let post_request = await get_response(request, {
+        let post_request = await get_response( new Request(request, {
             method: "POST",
             headers: {"Content-type": "application/json; charset=UTF-8"},
             body: JSON.stringify({
@@ -28,7 +28,7 @@ async function add_new_user(){
                 password: password_value.value,
 
             }),
-         });
+         }));
 
                     if (post_request.status == 200){
                         document.querySelector("#feedback").classList.add("visible");
@@ -49,20 +49,36 @@ async function add_new_user(){
                            console.log(post_request)
                             document.querySelector("#feedback").innerHTML = `
                             <p> The server thinks it's not a teapot! </p>
-                            <button> Close </button>`    
-                            
+                            <button> Close </button>`;
+                            document.querySelector("#feedback button").addEventListener("click", e => {
+                                document.querySelector("#feedback").classList.remove("visible") 
+                            })
+
 
                            case 409: 
                            document.querySelector("#feedback").classList.add("visible");
                             document.querySelector("#feedback").innerHTML = `
                             <p> Sorry, that name already exists. Please try with another one.</p>
                             <button> Close </button>`    
-                            "The server finds a conflict"
+                            "The server finds a conflict";
+                            document.querySelector("#feedback button").addEventListener("click", e => {
+                                document.querySelector("#feedback").classList.remove("visible");
+                            })
+
+                            case 400: 
+                            document.querySelector("#feedback").classList.add("visible");
+                            document.querySelector("#feedback").innerHTML = `
+                            <p> Sorry, the value is cannot be read, please try again.</p>
+                            <button> Close </button>`    
+                            "The server finds a conflict";
+                            document.querySelector("#feedback button").addEventListener("click", e => {
+                                document.querySelector("#feedback").classList.remove("visible");
+                            })
 
                         }
-                        document.querySelector("#feedback button").addEventListener("click", e => {
-                                document.querySelector("#feedback").classList.remove("visible");
-                    })
+                        
+                        
+
               }      
        }                
    }

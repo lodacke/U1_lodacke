@@ -1,3 +1,4 @@
+let feedback_dom = document.querySelector("#feedback");
 
 function random_number(max) {
     return Math.floor(max * Math.random());
@@ -12,7 +13,8 @@ function get_game(){
     <div id=game></div>`;
 
         document.querySelector("body").style.backgroundColor = "rgb(191, 232, 237);";
-        document.querySelector("#feedback").textContent = "Getting a random image..."
+        feedback_dom.classList.add("visible");
+        feedback_dom.textContent = "Getting a random image...";
         document.querySelector("main").style.backgroundImage = "url('media/logo.png')";
     
 
@@ -20,6 +22,8 @@ function get_game(){
     }
 
     async function start_game(){
+
+        feedback_dom.classList.remove("visible");
 
         let right_answer = ALL_BREEDS[random_number(ALL_BREEDS.length)];
             console.log(right_answer);
@@ -35,39 +39,56 @@ function get_game(){
 
         document.querySelector("#game").append(game_photo);
         document.querySelector("#game").append(question_board);
-        
+       
         for(let i = 1; i <= 4; i++){
             let question_dom = document.createElement("div");
             question_dom.setAttribute("id", `answer_${i}`);
             question_dom.addEventListener("click", test_question);
             question_board.append(question_dom);
         } 
-            for(let i = 1; i <= 3; i++){
-                document.querySelector(`#answer_${i}`).textContent = ALL_BREEDS[random_number(ALL_BREEDS.length)].name;
-                 }            
-            document.querySelector("#answer_4").textContent = right_answer.name;
-            
-     //id namnet är 0 - 3, så ges namn ALL_BREEDS[random_number(ALL_BREEDS.length)];, annars right_answer
 
+        let random_placement = random_number(4);
+
+        for(let i = 0; i <= 4; i++){
+            if(random_placement){
+                document.querySelector("#answer_4").textContent = right_answer.name;
+                document.querySelector(`#answer_4`).style.backgroundColor = "red";
+                        } else {
+                document.querySelector(`#answer_${i}`).textContent = ALL_BREEDS[random_number(ALL_BREEDS.length)].name;
+
+            }
+        }
+
+            
      function test_question(event){;
-            let feedback_dom = document.querySelector("#feedback");
 
         if(event.currentTarget.innerText === right_answer.name){
+            feedback_dom.classList.add("visible");
             feedback_dom.innerHTML = `
            <p> Answer! </p> 
            <button> Try again </button> `;
-            feedback_dom.textContent = "Right Answer!";
-            feedback_dom.classList.add("visible");
             feedback_dom.style.backgroundColor = "green";
             feedback_dom.querySelector("button").addEventListener("click", e => {
                 feedback_dom.classList.remove("visible");
-            });
 
-        };
+                document.querySelector("#game").innerHTML = ``;
+                start_game();
+            })
+
+        } else {
+            feedback_dom.classList.add("visible");
+            feedback_dom.innerHTML = `
+           <p>Wrong answer, please try again </p> 
+           <button> Try again </button> `;
+            feedback_dom.style.backgroundColor = "coral";
+            feedback_dom.querySelector("button").addEventListener("click", e => {
+                feedback_dom.classList.remove("visible");
+
+        });
        // if(event.currentTarget.innerText === )
     }
 
-        }
+}
 
 
     
@@ -89,13 +110,12 @@ function get_game(){
 
    document.querySelector("button").addEventListener("click", logout);
 
+    }
 
-
-    
     function logout(){
 
-   //     document.querySelector("main").reset("denna funktion gick inte alls");
-       /* document.querySelector("main").innerHTML = `
+        //     document.querySelector("main").reset("denna funktion gick inte alls");
+    /* document.querySelector("main").innerHTML = `
 <div class="center_object">
 <h1>LOGIN</h1>
 </div> <div>
@@ -119,8 +139,9 @@ function get_game(){
 <p> New to this? register for free </p>
 </div>
 </div>`; */
+console.log("inne");
+    }
 
-    } 
     
     
     
