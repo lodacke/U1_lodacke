@@ -1,17 +1,17 @@
 "use strict"
 
-document.querySelector("main").innerHTML = `
+let main = document.querySelector("main");
+
+function start_page() { //<-- behöver få denna funktion att funka för att få logga-ut knappen att fungera, problemet är i att få resten av länkarna att funka efteråt, document. funkar inte, och inte main heller. 
+    main.innerHTML = `
 <div class="center_object">
 <h1>LOGIN</h1>
-</div> <div>
-<label for=User Name"> User Name:</label>
-<br>
-<input type="User Name">
 </div>
+<div class="login_page">
+<label for=User Name"> User Name:</label>
+<input type="User Name">
 
-<div>
 <label for="Password"> Password:</label>
-<br>
 <input type="Password">
 </div>
 
@@ -25,16 +25,16 @@ document.querySelector("main").innerHTML = `
 </div>
 </div>`;
 
-let password_value = document.querySelector("input[type='Password']");
-let user_value = document.querySelector("input[type='User Name']");
+main.querySelector("#where_to").addEventListener("click", where_to);
 
-document.querySelector("#where_to").addEventListener("click", where_to);
-
-document.querySelector("main button").addEventListener("click", e => {
+main.querySelector("main button").addEventListener("click", e => {
     if(document.querySelector("main button").innerText === "Login"){
         login();
      }  
  })
+
+}
+
 
 function where_to(){
     document.querySelector("#where_to").classList.toggle("selected");

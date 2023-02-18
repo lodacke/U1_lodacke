@@ -1,13 +1,14 @@
 @font-face {
-    font-family: "Roboto_light";
-    src: url("/fonts/RobotoCondensed-Light.ttf");
+    font-family: "Roboto";
+    src: url("/fonts_2/RobotoCondensed-Light.ttf");
 }
 
 body{
-    margin-left: 3%;
+    font-family: "Roboto";
+    margin: 0px;
+    padding-left: 3%;
     border-radius: 3000px;
     background-color: rgb(191, 232, 237);
-    font-family: "Roboto_light";
     width: 337px;
     height: 666px;
 }

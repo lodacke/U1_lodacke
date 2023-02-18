@@ -1,4 +1,6 @@
+let feedback_background_dom = document.querySelector("#feedback_background");
 let feedback_dom = document.querySelector("#feedback");
+
 
 function random_number(max) {
     return Math.floor(max * Math.random());
@@ -18,12 +20,14 @@ function get_game(){
         document.querySelector("main").style.backgroundImage = "url('media/logo.png')";
     
 
-        start_game()
+        start_game();
     }
 
     async function start_game(){
 
         feedback_dom.classList.remove("visible");
+        feedback_background_dom.classList.remove("visible");
+
 
         let right_answer = ALL_BREEDS[random_number(ALL_BREEDS.length)];
             console.log(right_answer);
@@ -31,8 +35,9 @@ function get_game(){
         let dog_response = await (await get_response(dog_resource)).json();
 
         let game_photo = document.createElement("div");
-        game_photo.style.backgroundImage = `url(${dog_response.message})`;
-        game_photo.classList.add("game_photo");
+            game_photo.classList.add("game_photo");
+
+            game_photo.style.backgroundImage = `url(${dog_response.message})`;
 
         let question_board = document.createElement("div");
         question_board.classList.add("question_board");
@@ -42,28 +47,28 @@ function get_game(){
        
         for(let i = 1; i <= 4; i++){
             let question_dom = document.createElement("div");
-            question_dom.setAttribute("id", `answer_${i}`);
             question_dom.addEventListener("click", test_question);
             question_board.append(question_dom);
-        } 
 
-        let random_placement = random_number(4);
+            let random_placement = random_number(4);
 
-        for(let i = 0; i <= 4; i++){
-            if(random_placement){
-                document.querySelector("#answer_4").textContent = right_answer.name;
-                document.querySelector(`#answer_4`).style.backgroundColor = "red";
-                        } else {
-                document.querySelector(`#answer_${i}`).textContent = ALL_BREEDS[random_number(ALL_BREEDS.length)].name;
-
+            for(let i = 1; i <= 4; i++){
+                if(random_placement){
+                    question_dom.textContent = right_answer.name;
+                    question_dom.style.backgroundColor = "red";
+                            } else {
+                    question_dom.textContent = ALL_BREEDS[random_number(ALL_BREEDS.length)].name;
+    
+                }
             }
-        }
+        } 
 
             
      function test_question(event){;
 
         if(event.currentTarget.innerText === right_answer.name){
             feedback_dom.classList.add("visible");
+            feedback_background_dom.classList.add("visible");
             feedback_dom.innerHTML = `
            <p> Answer! </p> 
            <button> Try again </button> `;
@@ -77,12 +82,16 @@ function get_game(){
 
         } else {
             feedback_dom.classList.add("visible");
+            feedback_background_dom.classList.add("visible");
             feedback_dom.innerHTML = `
            <p>Wrong answer, please try again </p> 
            <button> Try again </button> `;
             feedback_dom.style.backgroundColor = "coral";
             feedback_dom.querySelector("button").addEventListener("click", e => {
                 feedback_dom.classList.remove("visible");
+
+                document.querySelector("#game").innerHTML = ``;
+                start_game();
 
         });
        // if(event.currentTarget.innerText === )
@@ -114,6 +123,7 @@ function get_game(){
 
     function logout(){
 
+        start_page();
         //     document.querySelector("main").reset("denna funktion gick inte alls");
     /* document.querySelector("main").innerHTML = `
 <div class="center_object">
@@ -140,6 +150,8 @@ function get_game(){
 </div>
 </div>`; */
 console.log("inne");
+
+
     }
 
     

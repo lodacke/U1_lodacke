@@ -17,6 +17,7 @@ async function add_new_user(){
        // <button> close </button>`
        // };
         document.querySelector("#feedback").classList.add("visible");
+        document.querySelector("#feedback_background").classList.add("visible")
         document.querySelector("#feedback").innerText = "Contacting Server..."
 
         let post_request = await get_response( new Request(request, {
@@ -32,6 +33,7 @@ async function add_new_user(){
 
                     if (post_request.status == 200){
                         document.querySelector("#feedback").classList.add("visible");
+                        document.querySelector("#feedback_background").classList.add("visible")
                         document.querySelector("#feedback").innerHTML = `
                         <p> Registration complete. </p>
                         <p> Please proceed to login. </p>
@@ -39,6 +41,8 @@ async function add_new_user(){
                         
                         document.querySelector("#feedback button").addEventListener("click", e => {
                             document.querySelector("#feedback").classList.remove("visible");
+                            document.querySelector("#feedback_background").classList.remove("visible")
+
                         })
                     }  else {
                        
@@ -46,33 +50,42 @@ async function add_new_user(){
 
                            case 418: 
                            document.querySelector("#feedback").classList.add("visible");
+                           document.querySelector("#feedback_background").classList.add("visible")
                            console.log(post_request)
                             document.querySelector("#feedback").innerHTML = `
                             <p> The server thinks it's not a teapot! </p>
                             <button> Close </button>`;
                             document.querySelector("#feedback button").addEventListener("click", e => {
                                 document.querySelector("#feedback").classList.remove("visible") 
+                                document.querySelector("#feedback_background").classList.remove("visible");
+
                             })
 
 
                            case 409: 
                            document.querySelector("#feedback").classList.add("visible");
+                           document.querySelector("#feedback_background").classList.add("visible")
                             document.querySelector("#feedback").innerHTML = `
                             <p> Sorry, that name already exists. Please try with another one.</p>
                             <button> Close </button>`    
                             "The server finds a conflict";
                             document.querySelector("#feedback button").addEventListener("click", e => {
                                 document.querySelector("#feedback").classList.remove("visible");
+                                document.querySelector("#feedback_background").classList.remove("visible");
+
                             })
 
                             case 400: 
                             document.querySelector("#feedback").classList.add("visible");
+                            document.querySelector("#feedback_background").classList.add("visible")
                             document.querySelector("#feedback").innerHTML = `
                             <p> Sorry, the value is cannot be read, please try again.</p>
                             <button> Close </button>`    
                             "The server finds a conflict";
                             document.querySelector("#feedback button").addEventListener("click", e => {
                                 document.querySelector("#feedback").classList.remove("visible");
+                                document.querySelector("#feedback_background").classList.remove("visible");
+
                             })
 
                         }
@@ -87,6 +100,7 @@ async function add_new_user(){
 
 async function login(){
     document.querySelector("#feedback").classList.add("visible");
+    document.querySelector("#feedback_background").classList.add("visible")
     document.querySelector("#feedback").textContent = "Connecting to server...";
 
 
@@ -94,6 +108,8 @@ async function login(){
    console.log(login_request);
 
    document.querySelector("#feedback").classList.remove("visible");
+   document.querySelector("#feedback_background").classList.remove("visible")
+
    if(login_request.ok){
     document.querySelector("main").innerHTML = ``;
     get_game();

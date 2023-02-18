@@ -3,7 +3,6 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
-    flex-direction: column;
 }
 
 
@@ -24,15 +23,12 @@ main {
     font-size: 10px;
 }
 
-#game{
-    height: 90%;
-}
-
 .game_photo{
-    height: 65%;
     border-radius: 10px;
     border: 1px solid gray;
     margin: 3%;
+    height: 40%;
+    background-size: 85%;
     background-position: center;
 }
 
