@@ -49,25 +49,37 @@ function get_game(user_value){
         game_folder.append(game_photo);
         document.querySelector("#game").append(game_folder);
         document.querySelector("#game").append(question_board);
+
+
+        
        
-        for(let i = 1; i <= 4; i++){
-            let question_dom = document.createElement("div");
-            question_dom.classList.add("question");
-            question_dom.addEventListener("click", test_question);
-            question_board.append(question_dom);
+            for(let i = 1; i <= 4; i++){
+                let question_dom = document.createElement("div");
+                question_dom.classList.add("question");
+                question_dom.addEventListener("click", test_question);
+                question_board.append(question_dom);
+                let id_value = random_number(4);
+                question_dom.setAttribute("id", `id${id_value}`); // Filterar så att varje id bara kommer en gång. 
 
-            let random_placement = random_number(2);
 
-            for(let i = 1; i <= 4; i++){ // Random number på id:et, för att sen placera in dom. 
-                if(random_placement){
-                    question_dom.textContent = right_answer.name;
-                    question_dom.style.backgroundColor = "red";
-                            } else {
-                    question_dom.textContent = ALL_BREEDS[random_number(ALL_BREEDS.length)].name;
-    
-                }
-            }
+            
+
+          //  for(let i = 1; i <= 4; i++){ // Random number på id:et, för att sen placera in dom. Lägga in id i en array, om värdet redan har lästs så läggs inte nästa värde till igen.
+          //      if(random_placement){
+          //          question_dom.textContent = right_answer.name;
+          //          question_dom.style.backgroundColor = "red";
+          //                  } else {
+          //          question_dom.textContent = ALL_BREEDS[random_number(ALL_BREEDS.length)].name;
+    //
+          //      }
+          //  }
         } 
+
+        document.getElementById("id1").textContent = right_answer.name;
+        document.getElementById("id2").textContent = "Wrong Answer";
+        document.getElementById("id3").textContent = "Wrong Answer";
+        document.getElementById("id0").textContent = "Wrong Answer";
+        document.getElementById("id4").textContent = "Wrong Answer"; // Lägg till en ifsats som säger att om elementet har id 1 får den rätt svar, annars felaktigt. 
 
             
      function test_question(event){;
