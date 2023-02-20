@@ -2,7 +2,15 @@
 
 let main = document.querySelector("main");
 
-function start_page() { //<-- behöver få denna funktion att funka för att få logga-ut knappen att fungera, problemet är i att få resten av länkarna att funka efteråt, document. funkar inte, och inte main heller. 
+function login_page(){
+    if (localStorage.getItem("user_name") === null) {
+        start_page();
+    } else {
+        get_game(localStorage.getItem("user_name"));
+    }
+}
+
+function start_page() { 
     main.innerHTML = `
 <div class="center_object">
 <h1>LOGIN</h1>
@@ -24,6 +32,8 @@ function start_page() { //<-- behöver få denna funktion att funka för att få
 <p> New to this? register for free </p>
 </div>
 </div>`;
+
+main.style.backgroundImage = "";
 
 main.querySelector("#where_to").addEventListener("click", where_to);
 

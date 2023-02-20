@@ -1,21 +1,33 @@
 @font-face {
     font-family: "Roboto";
-    src: url("/fonts_2/RobotoCondensed-Light.ttf");
+    src: url("/fonts/RobotoCondensed-Light.ttf");
 }
+
 
 body{
+    min-width: 249px;
+    max-width: 545px;
     font-family: "Roboto";
     margin: 0px;
-    padding-left: 3%;
     border-radius: 3000px;
     background-color: rgb(191, 232, 237);
-    width: 337px;
-    height: 666px;
+    border-radius: 10px;
 }
 
+#feedback_background{
+    height: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
 header{
-    width: 95%;
-    height: 5%;
+    width: 100%;
+    height: 10%;
     display: flex;
     justify-content: space-between;
 }
@@ -25,8 +37,7 @@ header{
 }
 
 footer{
-    width: 95%;
-    height: 5%;
+    height: 10%;
 }
 
 

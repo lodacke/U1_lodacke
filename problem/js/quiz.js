@@ -2,14 +2,16 @@ let feedback_background_dom = document.querySelector("#feedback_background");
 let feedback_dom = document.querySelector("#feedback");
 
 
+
+
 function random_number(max) {
     return Math.floor(max * Math.random());
 }
 
-function get_game(){
+function get_game(user_value){
     document.querySelector("main").innerHTML = `
     <div id=login_box>
-    <p>${user_value.value}</p> 
+    <p>${user_value}</p> 
     <button>Logout</button>
     </div>
     <div id=game></div>`;
@@ -27,6 +29,7 @@ function get_game(){
 
         feedback_dom.classList.remove("visible");
         feedback_background_dom.classList.remove("visible");
+        document.querySelector("main").style.backgroundImage = "";
 
 
         let right_answer = ALL_BREEDS[random_number(ALL_BREEDS.length)];
@@ -34,25 +37,28 @@ function get_game(){
         let dog_resource = `https://dog.ceo/api/breed/${right_answer.url}/images/random`;
         let dog_response = await (await get_response(dog_resource)).json();
 
-        let game_photo = document.createElement("div");
-            game_photo.classList.add("game_photo");
-
-            game_photo.style.backgroundImage = `url(${dog_response.message})`;
+    
+        let game_folder = document.createElement("div");
+        game_folder.classList.add("game_folder");
+        let game_photo = document.createElement("img");
+        game_photo.src = `${dog_response.message}`;
 
         let question_board = document.createElement("div");
         question_board.classList.add("question_board");
 
-        document.querySelector("#game").append(game_photo);
+        game_folder.append(game_photo);
+        document.querySelector("#game").append(game_folder);
         document.querySelector("#game").append(question_board);
        
         for(let i = 1; i <= 4; i++){
             let question_dom = document.createElement("div");
+            question_dom.classList.add("question");
             question_dom.addEventListener("click", test_question);
             question_board.append(question_dom);
 
-            let random_placement = random_number(4);
+            let random_placement = random_number(2);
 
-            for(let i = 1; i <= 4; i++){
+            for(let i = 1; i <= 4; i++){ // Random number på id:et, för att sen placera in dom. 
                 if(random_placement){
                     question_dom.textContent = right_answer.name;
                     question_dom.style.backgroundColor = "red";
@@ -70,7 +76,7 @@ function get_game(){
             feedback_dom.classList.add("visible");
             feedback_background_dom.classList.add("visible");
             feedback_dom.innerHTML = `
-           <p> Answer! </p> 
+           <p> Corrent Answer! </p> 
            <button> Try again </button> `;
             feedback_dom.style.backgroundColor = "green";
             feedback_dom.querySelector("button").addEventListener("click", e => {
@@ -94,28 +100,9 @@ function get_game(){
                 start_game();
 
         });
-       // if(event.currentTarget.innerText === )
     }
 
 }
-
-
-    
-
-
-
-  
-
-        /*If(question_dom.innerText === "vad som nu kommer från bilden"){
-
-        }
-        */ 
-
-
-        //Lägga till bild på en random ras i game_photo, sen matcha ihop dom med textcontent i question_dom.
-        //https://dog.ceo/api/breeds/image/random för att nå bilderna
-
-
 
    document.querySelector("button").addEventListener("click", logout);
 
@@ -123,34 +110,9 @@ function get_game(){
 
     function logout(){
 
+        localStorage.removeItem("user_name")
+
         start_page();
-        //     document.querySelector("main").reset("denna funktion gick inte alls");
-    /* document.querySelector("main").innerHTML = `
-<div class="center_object">
-<h1>LOGIN</h1>
-</div> <div>
-<label for=User Name"> User Name:</label>
-<br>
-<input type="User Name">
-</div>
-
-<div>
-<label for="Password"> Password:</label>
-<br>
-<input type="Password">
-</div>
-
-<div>
-<p class="Paragraph"> Let the magic start! </p>
-<br>
-<button class=login_button> Login </button>
-
-<div id="where_to">
-<p> New to this? register for free </p>
-</div>
-</div>`; */
-console.log("inne");
-
 
     }
 

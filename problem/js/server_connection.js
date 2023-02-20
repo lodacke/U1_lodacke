@@ -99,6 +99,10 @@ async function add_new_user(){
 
 
 async function login(){
+
+    let password_value = document.querySelector("input[type='Password']");
+    let user_value = document.querySelector("input[type='User Name']");
+
     document.querySelector("#feedback").classList.add("visible");
     document.querySelector("#feedback_background").classList.add("visible")
     document.querySelector("#feedback").textContent = "Connecting to server...";
@@ -111,8 +115,9 @@ async function login(){
    document.querySelector("#feedback_background").classList.remove("visible")
 
    if(login_request.ok){
+    localStorage.setItem("user_name", user_value.value);
     document.querySelector("main").innerHTML = ``;
-    get_game();
+    get_game(user_value.value);
    } else {
     document.querySelector(".Paragraph").textContent = "Wrong user name or password";
     document.querySelector(".Paragraph").style.backgroundColor = "white";
