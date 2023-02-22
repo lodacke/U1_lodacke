@@ -4,84 +4,107 @@ main {
     background-repeat: no-repeat;
     display: flex;
     justify-content: space-between;
-}
-
-
-#login_box{
+ }
+ 
+ 
+ 
+ 
+ #login_box{
     border-radius: 10px;
     width: 100%;
     background-color: white;
     padding: 1%;
-
+ 
+ 
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-#login_box > * {
+ }
+ 
+ 
+ #login_box > * {
     font-size: 20px;
-}
-
-.waiting_for_game{
+ }
+ 
+ 
+ .waiting_for_game{
     background-image: url(../media/logo.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     height: 300px;
-}
-
-#game{
+ }
+ 
+ 
+ #game{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-}
-
-.game_folder{
+ 
+ 
+ }
+ 
+ 
+ .game_folder{
     display: flex;
     align-items: center;
     justify-content: center;
-
-}
-
-.game_folder > img{
-
-    margin: 20% 0% 2% 0%; 
+ 
+ 
+ }
+ 
+ 
+ .game_folder > img{
+ 
+ 
+    margin: 20% 0% 2% 0%;
     background-position: center;
     background-size: cover;
     max-height: 400px;
     min-height: 150px;
     max-width: 80vw;
     border-radius: 10px;
-
-}
-
-.question_board{
+ 
+ 
+ }
+ 
+ 
+ .question_board{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2%;
     margin: 0px 0px 10% 0px;
-}
-
-.question{
+ }
+ 
+ 
+ .question{
     height: 40px;
     font-size: 23px;
-    padding: 10px;    
+    padding: 10px;   
     background-color: white;
     border: 0.5px solid gray;
     border-radius: 10px;
-
-
+ 
+ 
+ 
+ 
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.question:hover{
+ }
+ 
+ 
+ .question:hover{
     background-color: rgb(211, 239, 248);
-}
-
-.question:active{
+ }
+ 
+ 
+ .question:active{
     border: 1px solid gray;
     background-color: rgb(213, 227, 232);
-}
+ }
+ 
+ 
+ 
+ 
+ 
