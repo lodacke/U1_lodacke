@@ -1,34 +1,77 @@
 @font-face {
     font-family: "Roboto";
-    src: url("/fonts/RobotoCondensed-Light.ttf");
+    src: url("../fonts/RobotoCondensed-Light.ttf");
 }
 
+
+button {
+    font-family: "Roboto";
+}
 
 body{
     min-width: 249px;
     max-width: 545px;
     font-family: "Roboto";
     margin: 0px;
-    border-radius: 3000px;
-    background-color: rgb(191, 232, 237);
-    border-radius: 10px;
+   /* background-color: black; */
 }
 
-#feedback_background{
-    height: 100%;
-    padding: 10px;
+#wrapper{
+    /*background-color: rgb(191, 232, 237);*/
     border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+
     display: flex;
+    flex-direction: column; 
+     align-items: center
+}
+
+#feedback{
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    visibility: hidden;
+    border: 1px solid black;
+    font-size: 22px;
+    padding: 2%;
+    background-color: white;
+
+    position: absolute;
+    top: 60vw;
+    left: 12%;
+    width: 70%;
+    max-width: 396px;
+
+    background-color: white;
+    border-radius: 10px;
 }
 
+#feedback > button{
+    width: 95%;
+    font-size: 20px;
+    padding: 10px;
+}
+
+#feedback.visible{
+    visibility: visible;
+}
+
+#feedback_background.visible{
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+
+}
 
 header{
-    width: 100%;
-    height: 10%;
+    width: 95%;
+    height: 8%;
     display: flex;
+    font-size: 18px;
     justify-content: space-between;
 }
 

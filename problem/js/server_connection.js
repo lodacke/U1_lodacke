@@ -1,5 +1,6 @@
 let request = "https://teaching.maumt.se/apis/access/";
 
+
 async function get_response(request) {
     let response = await fetch(request)
     return response;
@@ -8,14 +9,10 @@ async function get_response(request) {
 
 async function add_new_user(){
 
-    if(document.querySelector("button").innerText === "Registration"){
-       // if(password_value.value === " " && user_value.value === " "){
-       //    
-       // document.querySelector("#feedback").classList.add("visible");
-       // document.querySelector("#feedback").innerHTML = `
-       // <p>You have not added a value, Please add a credential and try again. </p>    <-- För att säkra upp så att inga tomma värden kan loggas, kanske överkurs.
-       // <button> close </button>`
-       // };
+    let password_value = document.querySelector("input[type='Password']");
+    let user_value = document.querySelector("input[type='User Name']");
+
+    if(document.querySelector(".start_page_button").innerText === "Registration"){
         document.querySelector("#feedback").classList.add("visible");
         document.querySelector("#feedback_background").classList.add("visible")
         document.querySelector("#feedback").innerText = "Contacting Server..."
@@ -45,56 +42,41 @@ async function add_new_user(){
 
                         })
                     }  else {
-                       
+                        document.querySelector("#feedback").classList.add("visible");
+                        document.querySelector("#feedback_background").classList.add("visible")
                         switch(post_request.status){
 
                            case 418: 
-                           document.querySelector("#feedback").classList.add("visible");
-                           document.querySelector("#feedback_background").classList.add("visible")
+
                            console.log(post_request)
                             document.querySelector("#feedback").innerHTML = `
                             <p> The server thinks it's not a teapot! </p>
                             <button> Close </button>`;
-                            document.querySelector("#feedback button").addEventListener("click", e => {
-                                document.querySelector("#feedback").classList.remove("visible") 
-                                document.querySelector("#feedback_background").classList.remove("visible");
-
-                            })
+                            break;
 
 
                            case 409: 
-                           document.querySelector("#feedback").classList.add("visible");
-                           document.querySelector("#feedback_background").classList.add("visible")
                             document.querySelector("#feedback").innerHTML = `
-                            <p> Sorry, that name already exists. Please try with another one.</p>
+                            <p> Sorry, that name already exists. <br> Please try with another one.</p>
                             <button> Close </button>`    
                             "The server finds a conflict";
-                            document.querySelector("#feedback button").addEventListener("click", e => {
-                                document.querySelector("#feedback").classList.remove("visible");
-                                document.querySelector("#feedback_background").classList.remove("visible");
-
-                            })
+                            break;
 
                             case 400: 
-                            document.querySelector("#feedback").classList.add("visible");
-                            document.querySelector("#feedback_background").classList.add("visible")
                             document.querySelector("#feedback").innerHTML = `
-                            <p> Sorry, the value is cannot be read, please try again.</p>
+                            <p> There seems to be a NetworkError,<br> please check you're connection.</p>
                             <button> Close </button>`    
                             "The server finds a conflict";
-                            document.querySelector("#feedback button").addEventListener("click", e => {
-                                document.querySelector("#feedback").classList.remove("visible");
-                                document.querySelector("#feedback_background").classList.remove("visible");
+                             break;
+                     }                                        
+              }  
+            document.querySelector("#feedback button").addEventListener("click", e => {
+            document.querySelector("#feedback").classList.remove("visible");
+            document.querySelector("#feedback_background").classList.remove("visible")
 
-                            })
-
-                        }
-                        
-                        
-
-              }      
-       }                
-   }
+         });    
+     }                
+ }
 
 
 
@@ -104,6 +86,7 @@ async function login(){
     let user_value = document.querySelector("input[type='User Name']");
 
     document.querySelector("#feedback").classList.add("visible");
+    document.querySelector("#feedback").style.backgroundColor = "";
     document.querySelector("#feedback_background").classList.add("visible")
     document.querySelector("#feedback").textContent = "Connecting to server...";
 
@@ -124,6 +107,3 @@ async function login(){
    }
 }
 
-//async function get_fetch(){
-//    if(re)
-//}

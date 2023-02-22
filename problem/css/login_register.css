@@ -1,10 +1,17 @@
 
 main{
-    height:90%;
+    width: 90%;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+}
+
+.log_page{
+    background-color: rgb(191, 232, 237);
+}
+
+.reg_page{
+    background-color: rgb(97, 184, 97);
 }
 
 main > div{
@@ -21,13 +28,13 @@ min-height: 60%;
 
 input{
     height: 30px;
-    width: 100%;
-    font-size: 15px;
-
+    width: 95%;
+    font-size: 20px;
+    font-family: "Roboto";
 }
 
 label{  
-    font-size: 17px;  
+    font-size: 20px;  
     display: flex;
     justify-content: left;
     margin-top: 10px;
@@ -35,17 +42,17 @@ label{
 }
 
 .Paragraph{
+    margin-top: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.login_button{
-    margin-top: 30%;;
-    padding: 8%;
+.start_page_button{
+    margin-top: 20%;;
+    padding: 7%;
     width: 100%;
-    font-size: 18px;
-
+    font-size: 25px;  
 }
 
 #where_to > p{
@@ -54,34 +61,6 @@ align-items: center;
 justify-content: center;
 }
 
-#feedback{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-    border: 1px solid black;
-    font-size: 18px;
-    padding: 2%;
 
-    position: absolute;
-    top: 70vw;
-    width: 70%;
-
-    background-color: white;
-    border-radius: 10px;
-
-}
-
-#feedback_background.visible{
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100%;
-
-
-}
-
-#feedback.visible{
-    visibility: visible;
-}
 
 
