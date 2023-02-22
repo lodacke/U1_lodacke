@@ -4,65 +4,77 @@ main{
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-
-.log_page{
+ }
+ 
+ 
+ .log_page{
     background-color: rgb(191, 232, 237);
-}
-
-.reg_page{
+ }
+ 
+ 
+ .reg_page{
     background-color: rgb(97, 184, 97);
-}
-
-main > div{
-width: 100%;
-min-height: 60%;
-
-}
-
-.center_object{
+ }
+ 
+ 
+ main > div{
+ width: 100%;
+ min-height: 60%;
+ 
+ 
+ }
+ 
+ 
+ .center_object{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-input{
+ }
+ 
+ 
+ input{
     height: 30px;
     width: 95%;
     font-size: 20px;
     font-family: "Roboto";
-}
-
-label{  
-    font-size: 20px;  
+ }
+ 
+ 
+ label{ 
+    font-size: 20px; 
     display: flex;
     justify-content: left;
     margin-top: 10px;
-
-}
-
-.Paragraph{
+ 
+ 
+ }
+ 
+ 
+ .Paragraph{
     margin-top: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.start_page_button{
+ }
+ 
+ 
+ .start_page_button{
     margin-top: 20%;;
     padding: 7%;
     width: 100%;
-    font-size: 25px;  
-}
-
-#where_to > a{
+    font-size: 25px; 
+ }
+ 
+ 
+ #where_to > a{
     margin-top: 10%;
-color: black;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-
-
-
+ color: black;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
+ 
+ 
+ 
+ 
+ 
