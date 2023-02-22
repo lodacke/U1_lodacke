@@ -33,7 +33,7 @@ function start_page() {
             <button class="start_page_button"> Login </button>
 
             <div id="where_to">
-                <p> New to this? register for free </p>
+                <a href="#"> New to this? register for free </a>
             </div>
         </div>`;
 
@@ -62,7 +62,7 @@ function start_page() {
         document.querySelector("h1").innerText = "LOGIN";
         document.querySelector(".Paragraph").style.backgroundColor = "";
         document.querySelector(".Paragraph").innerText = "Let the magic start!"
-        document.querySelector("#where_to p").innerText = "New to this? register for free";
+        document.querySelector("#where_to a").innerText = "New to this? register for free";
         document.querySelector(".start_page_button").textContent = "Login"
     }
 
@@ -72,7 +72,7 @@ function start_page() {
         document.querySelector("h1").innerText = "REGISTRATION";
         document.querySelector(".Paragraph").style.backgroundColor = "";
         document.querySelector(".Paragraph").innerText = "Ready when you are..."
-        document.querySelector("#where_to p").innerText = "Already have an accounts? Go to login";
+        document.querySelector("#where_to a").innerText = "Already have an accounts? Go to login";
         document.querySelector(".start_page_button").textContent = "Registration";
 
     }

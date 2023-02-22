@@ -27,7 +27,7 @@ main {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 300px;
 }
 
 #game{
@@ -46,7 +46,7 @@ main {
 
 .game_folder > img{
 
-    margin: 30% 0% 2% 0%; 
+    margin: 20% 0% 2% 0%; 
     background-position: center;
     background-size: cover;
     max-height: 400px;
@@ -78,9 +78,10 @@ main {
 }
 
 .question:hover{
-    background-color: lightblue;
+    background-color: rgb(211, 239, 248);
 }
 
 .question:active{
     border: 1px solid gray;
+    background-color: rgb(213, 227, 232);
 }

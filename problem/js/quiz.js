@@ -8,6 +8,10 @@ function random_number(max) {
 
 function get_game(user_value){
 
+    get_game_again()
+
+    function get_game_again(){
+
     feedback_dom.style.backgroundColor = "";
 
 
@@ -24,10 +28,10 @@ function get_game(user_value){
         feedback_dom.textContent = "Getting a random image...";
         document.querySelector("#game").classList.add("waiting_for_game"); 
     
-        start_game();
-    }
+        start_game(user_value);
 
-async function start_game(){
+    }
+    async function start_game(){
 
         let answers = [];
         while (answers.length < 4){
@@ -36,7 +40,6 @@ async function start_game(){
                 answers.push(answer);
             }
         }
-
 
         let right_answer = answers[random_number(answers.length)];
         let dog_resource = `https://dog.ceo/api/breed/${right_answer.url}/images/random`;
@@ -68,43 +71,7 @@ async function start_game(){
 
         }
        
-             function test_question(event){;
 
-                if(event.currentTarget.innerText === right_answer.name){
-                    feedback_dom.classList.add("visible");
-                    feedback_background_dom.classList.add("visible");
-                    feedback_dom.style.backgroundColor = "green";
-                    feedback_dom.innerHTML = `
-                     <p> Corrent Answer! </p> 
-                     <button> Try again </button> `;
-                     feedback_dom.classList.add("log_page");
-                     feedback_dom.querySelector("button").addEventListener("click", e => {
-                     feedback_dom.classList.remove("visible");
-        
-                        document.querySelector("#game").innerHTML = ``;
-                        start_game();
-                    })
-        
-                    } else {
-                       feedback_dom.classList.add("visible");
-                       feedback_background_dom.classList.add("visible");
-
-                       feedback_dom.innerHTML = `
-                         <p>Wrong answer, please try again </p> 
-                         <button> Try again </button> `;
-
-                         feedback_dom.querySelector("button").addEventListener("click", e => {
-                         feedback_dom.classList.remove("visible");
-
-        
-                         document.querySelector("#game").innerHTML = ``;
-                         start_game();
-        
-                    });
-              }
-        
-        }         
-        
     function test_question(event){;
 
         if(event.currentTarget.innerText === right_answer.name){
@@ -118,7 +85,7 @@ async function start_game(){
             feedback_dom.classList.remove("visible");
 
                 document.querySelector("#game").innerHTML = ``;
-                get_game();
+                get_game_again();
             })
 
         } else {
@@ -134,14 +101,13 @@ async function start_game(){
                 feedback_dom.classList.remove("visible");
 
                 document.querySelector("#game").innerHTML = ``;
-                get_game();
+                get_game_again();
 
-                 });
-       
-             }
-
+                 });      
+            }
         }
     }
+ }
 
 
 function logout(){
