@@ -48,21 +48,18 @@ main {
  .game_folder{
     display: flex;
     align-items: center;
-    justify-content: center;
- 
+    justify-content: center; 
  
  }
  
  
  .game_folder > img{
- 
- 
     margin: 20% 0% 2% 0%;
     background-position: center;
     background-size: cover;
     max-height: 400px;
     min-height: 150px;
-    max-width: 80vw;
+    max-width: 90%;
     border-radius: 10px;
  
  

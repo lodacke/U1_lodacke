@@ -9,7 +9,6 @@ button {
 }
 
 body{
-    min-width: 249px;
     max-width: 545px;
     font-family: "Roboto";
     margin: 0px;
@@ -37,9 +36,9 @@ body{
     background-color: white;
 
     position: absolute;
-    top: 60vw;
-    left: 12%;
-    width: 70%;
+    top:30%;
+    left: 3%;
+    width: 50%;
     max-width: 396px;
 
     background-color: white;
@@ -67,11 +66,9 @@ body{
 
 #feedback_background.visible{
     background-color: rgba(255, 255, 255, 0.5);
-    height: 100%;
+    height: 100vh;
     width: 100%;
     position: absolute;
-
-
 }
 
 header{
