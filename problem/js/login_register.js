@@ -1,7 +1,5 @@
 "use strict"
 
-"use strict"
-
 
 let main = document.querySelector("main");
 
@@ -88,11 +86,7 @@ function start_page() {
        document.querySelector("#where_to a").innerText = "Already have an accounts? Go to login";
        document.querySelector(".start_page_button").textContent = "Registration";
 
-
    }
-
-
-
 
 }
 

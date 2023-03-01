@@ -9,15 +9,15 @@ button {
 }
 
 body{
-    max-width: 545px;
+   /* max-width: 545px; */
+    height: 100vh;
     font-family: "Roboto";
     margin: 0px;
 }
 
 #wrapper{
     border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
+    width: 100%;
 
     display: flex;
     flex-direction: column; 
@@ -37,7 +37,7 @@ body{
 
     position: absolute;
     top:30%;
-    left: 3%;
+    left: 22%;
     width: 50%;
     max-width: 396px;
 
@@ -66,9 +66,11 @@ body{
 
 #feedback_background.visible{
     background-color: rgba(255, 255, 255, 0.5);
-    height: 100vh;
-    width: 100%;
     position: absolute;
+
+    width: 100%;
+    top: 0;
+    bottom: 0;
 }
 
 header{
